@@ -8,8 +8,10 @@ import {createMaterialTopTabNavigator, createAppContainer, createBottomTabNaviga
 import ChatList from './ChatsList';
 import StatusList from './StatusList';
 import {Badge } from 'react-native-elements';
-import {Ionicons} from '@expo/vector-icons'
+
+import {Ionicons, MaterialIcons} from '@expo/vector-icons'
 import CallList from './CallsList';
+import MyCamera from './MyCamera';
 
 
 
@@ -96,32 +98,96 @@ const TabNavigator = createMaterialTopTabNavigator(
         // }
     },
 
+    //Uncomment...
+    // Camera: {
+    //     screen : MyCamera,
+
+      
+    //     // tabBarOptions: {
+            
+    //     //   },
+        
+   
+    //     navigationOptions: {
+
+    //       tabBarLabel: () =>   <MaterialIcons name='photo-camera' color="black" size={20} />,
+            
+    //       
+
+    //        tabStyle: { 
+    //         width:1
+    //       } 
+           
+    //         //tabBarIcon: () =>    <MaterialIcons name='photo-camera' color="black" size={20}/> 
+            
+    //      }
+    //  }
+    
+
 },
 {
+
 
 
     // if (navigation.state === "Status"){
         // Do not render badge
     // }
-   
+
+    
 
 
-
-
-
+    
     //STYLINGGG
     initialRouteName : "Chats",
+
+    
+    
+    // tabStyle: {
+    //     height: 40
+    // },
+    defaultNavigationOptions: ({ navigation }) => ({
+        tabStyle: ({ width }) => {
+        let value;
+        const routeName = navigation.state;
+   
+        if (routeName === 'Camera') {
+            //iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+            alert("afsaf");
+            width = 5;
+            
+            // Sometimes we want to add badges to some icons. 
+            // You can check the implementation below.
+            //IconComponent = HomeIconWithBadge; 
+          }
+
+            return {width: width};
+        }
+
+    }),
+
+    
+   
+    Camera: {
+        screen : MyCamera,
+        tabBarOptions: {
+            tabStyle: {
+                width: 5
+            }
+        }
+    },
+
     tabBarPosition: "top",
     tabBarOptions: {
         activeTintColor: 'yellow',
         inactiveTintColor: 'blue',
         showIcon: 'true',
+
         labelStyle:{
             fontSize: 15,
             color: 'white'
         },
         tabStyle: {
-            // width: 200
+            //width: (navigation.state === "Camera") ? 5 : 20,
             height: 60
         },
         style: {
@@ -135,11 +201,11 @@ const TabNavigator = createMaterialTopTabNavigator(
 
 
       },
-      order: ["Chats", "Status", 'Calls']
+      //Camera
+      order: [ "Chats", "Status", 'Calls']
   
 }
 );
-
 
 
 

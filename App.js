@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight , Image, Picker} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight ,TouchableOpacity, Image, Picker} from 'react-native';
 import MyStatusBar from './Components/MyStatusBar';
 import MyTitleBar from './Components/MyTitleBar';
 import MyTabNavigation from './Components/MyTabNavigation';
@@ -22,27 +22,26 @@ export default class App extends React.Component {
         
           <MyStatusBar/>
           <MyTitleBar/>
-          <View style={{flex: 16 , flexDirection:"column" ,}}>
-          {/* <View style={{alignItems:"flex-end", backgroundColor:'blue'}}>
-
-            
+          <View style={{flex: 16 , flexDirection:"row" ,}}>
+       
+          {/* <View style={{flexDirection:'row',
+            flex:2, justifyContent:'center', alignItems:'center', height:52, backgroundColor:'#065E55'}}>
+          <TouchableOpacity>
+            <MaterialIcons name='photo-camera' color="black" size={20} /> 
+          </TouchableOpacity>
           </View> */}
          
+          
            <MyTabNavigation/>
-           <MaterialIcons name='photo-camera' color="white" size={20}/>         
-           
+          
+         
              
            
 
           </View>
           
           
-          {/* Delete */}
-          {/* <View style={{flex:  2, alignItems:'center',}}>
          
-          
-
-          </View> */}
         
        
         
